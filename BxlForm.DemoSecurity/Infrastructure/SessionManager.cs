@@ -27,5 +27,10 @@ namespace BxlForm.DemoSecurity.Infrastructure
                 return (json is null) ? null : JsonSerializer.Deserialize<UserSession>(json);                
             }
         }
+
+        public void Clear()
+        {
+            _session.Clear();
+        }
     }
 }

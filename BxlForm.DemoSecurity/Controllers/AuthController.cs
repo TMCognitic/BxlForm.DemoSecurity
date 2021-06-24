@@ -84,7 +84,7 @@ namespace BxlForm.DemoSecurity.Controllers
                 return RedirectToAction("Login");
 
             //en ASP .Net MVC Classic ==> Session.Abandon()
-            HttpContext.Session.Clear();
+            _sessionManager.Clear();
             return RedirectToAction("Login");
         }
     }
