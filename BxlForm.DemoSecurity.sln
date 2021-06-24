@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BxlForm.DemoSecurity", "BxlForm.DemoSecurity\BxlForm.DemoSecurity.csproj", "{8E0240BE-B23B-4C6A-994D-26153BA28F1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BxlForm.DemoSecurity", "BxlForm.DemoSecurity\BxlForm.DemoSecurity.csproj", "{8E0240BE-B23B-4C6A-994D-26153BA28F1B}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BxlForm.DemoSecurity.Database", "BxlForm.DemoSecurity.Database\BxlForm.DemoSecurity.Database.sqlproj", "{F0FB9757-A266-4830-9BE5-486701DB2DDA}"
 EndProject
@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Global", "Global", "{B721B3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cllient", "Cllient", "{F531A917-9C03-4B9A-BBBD-D07BD008FBD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BxlForm.DemoSecurity.Models.Global", "BxlForm.DemoSecurity.Models.Global\BxlForm.DemoSecurity.Models.Global.csproj", "{C185C18D-0FA9-4121-839E-B623FBBAEEBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BxlForm.DemoSecurity.Models.Global", "BxlForm.DemoSecurity.Models.Global\BxlForm.DemoSecurity.Models.Global.csproj", "{C185C18D-0FA9-4121-839E-B623FBBAEEBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BxlForm.DemoSecurity.Models.Client", "BxlForm.DemoSecurity.Models.Client\BxlForm.DemoSecurity.Models.Client.csproj", "{0321E2CA-3B36-43E5-A8B6-60D99FCB2C85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BxlForm.DemoSecurity.Models.Client", "BxlForm.DemoSecurity.Models.Client\BxlForm.DemoSecurity.Models.Client.csproj", "{0321E2CA-3B36-43E5-A8B6-60D99FCB2C85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

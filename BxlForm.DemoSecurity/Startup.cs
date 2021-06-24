@@ -43,6 +43,10 @@ namespace BxlForm.DemoSecurity
 
             services.AddSingleton(sp => new Connection(SqlClientFactory.Instance, Configuration.GetConnectionString("DemoSecurityDb")));
             services.AddSingleton<GR.IAuthRepository, GS.AuthService>();
+            services.AddSingleton<GR.IContactRepository, GS.ContactService>();
+            services.AddSingleton<GR.ICategoryRepository, GS.CategoryService>();
+            services.AddSingleton<IContactRepository, ContactService>();
+            services.AddSingleton<ICategoryRepository, CategoryService>();
             services.AddSingleton<IAuthRepository, AuthService>();
             services.AddScoped<ISessionManager, SessionManager>();
         }

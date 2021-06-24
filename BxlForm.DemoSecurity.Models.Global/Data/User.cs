@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BxlForm.DemoSecurity.Models.Global.Data
+﻿namespace BxlForm.DemoSecurity.Models.Global.Data
 {
     public class User
     {

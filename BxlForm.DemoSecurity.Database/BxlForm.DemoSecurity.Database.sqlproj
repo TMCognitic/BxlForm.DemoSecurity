@@ -61,6 +61,7 @@
     <Folder Include="Programmability\Functions" />
     <Folder Include="Programmability\Functions\Scalar" />
     <Folder Include="Programmability\Procedures" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\User.sql" />
@@ -70,8 +71,15 @@
     <Build Include="Programmability\Procedures\BFSP_AuthUser.sql" />
     <Build Include="Tables\Category.sql" />
     <Build Include="Tables\Contact.sql" />
+    <Build Include="Programmability\Procedures\BFSP_UpdateContact.sql" />
+    <Build Include="Programmability\Procedures\BFSP_DeleteContact.sql" />
+    <Build Include="Programmability\Procedures\BFSP_AddContact.sql" />
+    <Build Include="Programmability\Procedures\BFSP_AddCategory.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BxlForm.DemoSecurity.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>

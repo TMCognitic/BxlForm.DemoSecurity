@@ -29,13 +29,19 @@ namespace BxlForm.DemoSecurity.Controllers
 
         public IActionResult Login()
         {
+            if (_sessionManager.User is not null)
+                return RedirectToAction("Index", "Contact");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Login(LoginForm form)
         {
-            if(!ModelState.IsValid)
+            if (_sessionManager.User is not null)
+                return RedirectToAction("Index", "Contact");
+
+            if (!ModelState.IsValid)
                 return View(form);
 
             User user = _authRepository.Login(form.Email, form.Passwd);
@@ -48,17 +54,23 @@ namespace BxlForm.DemoSecurity.Controllers
 
             _sessionManager.User = new UserSession() { Id = user.Id, LastName = user.LastName, FirstName = user.FirstName, IsAdmin = user.IsAdmin };           
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Contact");
         }
 
         public IActionResult Register()
         {
+            if (_sessionManager.User is not null)
+                return RedirectToAction("Index", "Contact");
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Register(RegisterForm form)
         {
+            if (_sessionManager.User is not null)
+                return RedirectToAction("Index", "Contact");
+
             if (!ModelState.IsValid)
                 return View(form);
 
@@ -68,6 +80,9 @@ namespace BxlForm.DemoSecurity.Controllers
 
         public IActionResult Logout()
         {
+            if (_sessionManager.User is null)
+                return RedirectToAction("Login");
+
             //en ASP .Net MVC Classic ==> Session.Abandon()
             HttpContext.Session.Clear();
             return RedirectToAction("Login");
