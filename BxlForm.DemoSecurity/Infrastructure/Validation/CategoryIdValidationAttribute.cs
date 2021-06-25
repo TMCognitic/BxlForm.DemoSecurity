@@ -3,7 +3,7 @@ using BxlForm.DemoSecurity.Models.Client.Repositories;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace BxlForm.DemoSecurity.Infrastructure
+namespace BxlForm.DemoSecurity.Infrastructure.Validation
 {
     public class CategoryIdValidationAttribute : ValidationAttribute
     {

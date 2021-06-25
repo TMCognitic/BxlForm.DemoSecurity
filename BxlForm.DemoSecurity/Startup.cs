@@ -14,7 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Tools.Connections.Database;
 using Microsoft.Data.SqlClient;
-using BxlForm.DemoSecurity.Infrastructure;
+using BxlForm.DemoSecurity.Infrastructure.Session;
 
 namespace BxlForm.DemoSecurity
 {
@@ -77,6 +77,11 @@ namespace BxlForm.DemoSecurity
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+          );
             });
         }
     }

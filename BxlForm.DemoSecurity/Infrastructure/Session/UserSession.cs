@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BxlForm.DemoSecurity.Infrastructure
+namespace BxlForm.DemoSecurity.Infrastructure.Session
 {
     public class UserSession
     {

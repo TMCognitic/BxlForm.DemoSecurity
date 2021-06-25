@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BxlForm.DemoSecurity.Infrastructure.Validation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,7 @@ namespace BxlForm.DemoSecurity.Models.Forms
         public string Email { get; set; }
         [Required]
         [DisplayName("Catégorie : ")]
+        [CategoryIdValidation]
         public int CategoryId { get; set; }
 
         public IEnumerable<SelectListItem> Categories { get; set; }

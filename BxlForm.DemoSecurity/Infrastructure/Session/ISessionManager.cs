@@ -1,6 +1,6 @@
 ﻿using BxlForm.DemoSecurity.Models.Client.Data;
 
-namespace BxlForm.DemoSecurity.Infrastructure
+namespace BxlForm.DemoSecurity.Infrastructure.Session
 {
     public interface ISessionManager
     {

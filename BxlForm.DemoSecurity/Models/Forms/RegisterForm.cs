@@ -1,4 +1,5 @@
 ﻿using BxlForm.DemoSecurity.Infrastructure;
+using BxlForm.DemoSecurity.Infrastructure.Validation;
 using System.ComponentModel.DataAnnotations;
 
 namespace BxlForm.DemoSecurity.Models.Forms

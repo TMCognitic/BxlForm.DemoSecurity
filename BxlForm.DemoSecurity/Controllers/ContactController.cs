@@ -1,4 +1,5 @@
-﻿using BxlForm.DemoSecurity.Infrastructure;
+﻿using BxlForm.DemoSecurity.Infrastructure.Security;
+using BxlForm.DemoSecurity.Infrastructure.Session;
 using BxlForm.DemoSecurity.Models.Client.Data;
 using BxlForm.DemoSecurity.Models.Client.Repositories;
 using BxlForm.DemoSecurity.Models.Forms;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace BxlForm.DemoSecurity.Controllers
 {
+    [AuthRequired]
     public class ContactController : Controller
     {
         private readonly IContactRepository _contactRepository;
@@ -28,17 +30,11 @@ namespace BxlForm.DemoSecurity.Controllers
         // GET: ContactController
         public IActionResult Index()
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             return View(_contactRepository.Get(_sessionManager.User.Id).Select(c => new DisplayContact() { Id = c.Id, LastName = c.LastName, FirstName = c.FirstName }));
         }
 
         public IActionResult Details(int id)
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             Contact contact = _contactRepository.Get(_sessionManager.User.Id, id);
 
             if(contact is null)
@@ -49,9 +45,6 @@ namespace BxlForm.DemoSecurity.Controllers
 
         public IActionResult Create()
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             CreateContactForm form = new CreateContactForm();
             form.Categories = GetCategories();
 
@@ -61,9 +54,6 @@ namespace BxlForm.DemoSecurity.Controllers
         [HttpPost]
         public IActionResult Create(CreateContactForm form)
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             if (!ModelState.IsValid)
             {
                 form.Categories = GetCategories(form.CategoryId);
@@ -79,9 +69,6 @@ namespace BxlForm.DemoSecurity.Controllers
         // GET: ContactController/Edit/5
         public ActionResult Edit(int id)
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             Contact contact = _contactRepository.Get(_sessionManager.User.Id, id);
 
             if (contact is null)
@@ -105,9 +92,6 @@ namespace BxlForm.DemoSecurity.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult Edit(int id, EditContactForm form)
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             if (!ModelState.IsValid)
             {
                 form.Categories = GetCategories(form.CategoryId);
@@ -122,9 +106,6 @@ namespace BxlForm.DemoSecurity.Controllers
         // GET: ContactController/Delete/5
         public ActionResult Delete(int id)
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             Contact contact = _contactRepository.Get(_sessionManager.User.Id,id);
 
             if (contact is null)
@@ -137,9 +118,6 @@ namespace BxlForm.DemoSecurity.Controllers
         [HttpPost]
         public ActionResult Delete(int id, IFormCollection collection)
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login", "Auth");
-
             _contactRepository.Delete(_sessionManager.User.Id, id);
 
             return RedirectToAction("Index");

@@ -1,7 +1,9 @@
-﻿using BxlForm.DemoSecurity.Infrastructure;
+﻿using BxlForm.DemoSecurity.Infrastructure.Security;
+using BxlForm.DemoSecurity.Infrastructure.Session;
 using BxlForm.DemoSecurity.Models.Client.Data;
 using BxlForm.DemoSecurity.Models.Client.Repositories;
 using BxlForm.DemoSecurity.Models.Forms;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -27,20 +29,16 @@ namespace BxlForm.DemoSecurity.Controllers
             return RedirectToAction("Login");
         }
 
+        [AnonymousRequired]
         public IActionResult Login()
         {
-            if (_sessionManager.User is not null)
-                return RedirectToAction("Index", "Contact");
-
             return View();
         }
 
         [HttpPost]
+        [AnonymousRequired]
         public IActionResult Login(LoginForm form)
         {
-            if (_sessionManager.User is not null)
-                return RedirectToAction("Index", "Contact");
-
             if (!ModelState.IsValid)
                 return View(form);
 
@@ -57,20 +55,16 @@ namespace BxlForm.DemoSecurity.Controllers
             return RedirectToAction("Index", "Contact");
         }
 
+        [AnonymousRequired]
         public IActionResult Register()
         {
-            if (_sessionManager.User is not null)
-                return RedirectToAction("Index", "Contact");
-
             return View();
         }
 
         [HttpPost]
+        [AnonymousRequired]
         public IActionResult Register(RegisterForm form)
         {
-            if (_sessionManager.User is not null)
-                return RedirectToAction("Index", "Contact");
-
             if (!ModelState.IsValid)
                 return View(form);
 
@@ -78,11 +72,9 @@ namespace BxlForm.DemoSecurity.Controllers
             return RedirectToAction("Login");
         }
 
+        [AuthRequired]
         public IActionResult Logout()
         {
-            if (_sessionManager.User is null)
-                return RedirectToAction("Login");
-
             //en ASP .Net MVC Classic ==> Session.Abandon()
             _sessionManager.Clear();
             return RedirectToAction("Login");

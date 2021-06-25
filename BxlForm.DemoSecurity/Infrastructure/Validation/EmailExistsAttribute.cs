@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BxlForm.DemoSecurity.Infrastructure
+namespace BxlForm.DemoSecurity.Infrastructure.Validation
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class EmailExistsAttribute : ValidationAttribute

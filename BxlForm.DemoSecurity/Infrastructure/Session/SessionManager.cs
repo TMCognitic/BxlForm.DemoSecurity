@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace BxlForm.DemoSecurity.Infrastructure
+namespace BxlForm.DemoSecurity.Infrastructure.Session
 {
     public class SessionManager : ISessionManager
     {
