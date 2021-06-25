@@ -29,12 +29,6 @@ namespace BxlForm.DemoSecurity.Areas.Admin.Controllers
             return View(categories);
         }
 
-        // GET: CategoryController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
         // GET: CategoryController/Create
         public ActionResult Create()
         {
@@ -59,7 +53,7 @@ namespace BxlForm.DemoSecurity.Areas.Admin.Controllers
         // GET: CategoryController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(new EditCategoryForm() { Id = id, Name = "Test" });
         }
 
         // POST: CategoryController/Edit/5
